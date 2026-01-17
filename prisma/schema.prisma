@@ -5,65 +5,9 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider     = "prisma-client-js"
-  moduleFormat = "esm"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-}
-
-enum UserSigningMethode {
-  DEFAULT
-  GOOGLE
-}
-
-model User {
-  userId           String             @id @default(uuid()) @map("user_id") @db.Uuid
-  email            String             @unique @db.VarChar(255)
-  fName            String             @db.VarChar(50)
-  lName            String             @db.VarChar(50)
-  phone            String             @db.VarChar(50)
-  settings         Json               @default("{\"theme\": \"dark\", \"lang\": \"en\"}")
-  signing_methodes UserSigningMethode @default(DEFAULT)
-  password         String
-  status           String             @default("active")
-  last_login       DateTime           @default(now())
-  created_at       DateTime           @default(now())
-  updated_at       DateTime
-
-  @@map("Users")
-}
-
-model admin {
-  userId           String             @id @default(uuid()) @map("user_id") @db.Uuid
-  email            String             @unique @db.VarChar(255)
-  fName            String             @db.VarChar(50)
-  lName            String             @db.VarChar(50)
-  phone            String             @db.VarChar(50)
-  settings         Json               @default("{\"theme\": \"dark\", \"lang\": \"en\"}")
-  signing_methodes UserSigningMethode @default(DEFAULT)
-  password         String
-  status           String             @default("active")
-  last_login       DateTime           @default(now())
-  created_at       DateTime           @default(now())
-  updated_at       DateTime
-
-  @@map("admins")
-}
-
-model test {
-  email            String             @unique @db.VarChar(255)
-  fName            String             @db.VarChar(50)
-  lName            String             @db.VarChar(50)
-  phone            String             @db.VarChar(50)
-  settings         Json               @default("{\"theme\": \"dark\", \"lang\": \"en\"}")
-  signing_methodes UserSigningMethode @default(DEFAULT)
-  password         String
-  status           String             @default("active")
-  last_login       DateTime           @default(now())
-  created_at       DateTime           @default(now())
-  updated_at       DateTime
-
-  @@map("test")
 }
