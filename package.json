@@ -6,9 +6,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "node --watch app.js",
-    "prisma:build": "node prisma/schemaMigration.js",
-    "prisma:generate": "npm run prisma:build && prisma generate",
-    "prisma:migrate": "npm run prisma:build && prisma migrate dev"
+    "prisma:generate": "npm prisma generate",
+    "prisma:migrate": "npm run prisma:generate && prisma migrate dev",
+    "prisma:stud" : "npx prisma studio"
   },
   "private": true,
   "dependencies": {
